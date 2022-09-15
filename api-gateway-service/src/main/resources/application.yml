@@ -21,6 +21,7 @@ spring:
             - Path=/user/** # ?? gateway ??? /user/**? ???? url? user-service? ?????? ??
           filters:
                 - RewritePath=/user/?(?<segment>.*), /$\{segment}
+                - CustomAuthFilter
 
         - id: order-service
           uri: lb://ORDER-SERVICE
