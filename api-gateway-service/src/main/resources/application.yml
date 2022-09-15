@@ -19,8 +19,12 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/user/** # ?? gateway ??? /user/**? ???? url? user-service? ?????? ??
+          filters:
+                - RewritePath=/user/?(?<segment>.*), /$\{segment}
 
         - id: order-service
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order/** # ?? gateway ??? /order/**? ???? url? order-service? ?????? ??
+          filters:
+            - RewritePath=/order/?(?<segment>.*), /$\{segment}
