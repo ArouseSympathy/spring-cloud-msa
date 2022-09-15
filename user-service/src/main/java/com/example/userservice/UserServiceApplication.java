@@ -9,15 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@RestController
 public class UserServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UserServiceApplication.class, args);
-	}
-
-	@GetMapping("/info")
-	public String info(@Value("${server.port}") String port) {
-		return "User 서비스의 기본 동작 Port: {" + port + "}";
 	}
 }

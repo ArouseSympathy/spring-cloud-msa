@@ -9,16 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@RestController
 public class OrderServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OrderServiceApplication.class, args);
-    }
-
-    @GetMapping("/info")
-    public String info(@Value("${server.port}") String port) {
-        return "Order 서비스의 기본 동작 Port: {" + port + "}";
     }
 
 }
