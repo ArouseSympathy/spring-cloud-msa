@@ -1,2 +1,3 @@
 # spring-cloud-msa
-spring-cloud-msa
+- discovery-server
+- discovery-client
