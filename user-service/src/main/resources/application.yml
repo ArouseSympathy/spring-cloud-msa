@@ -9,7 +9,7 @@ spring:
   config:
     import: "configserver:http://localhost:8888"
   cloud:
-    config: # Ex) `http://localhost:8088/config/test`
+    config: # Ex) `http://localhost:8088/config/local`
       name: config # config name
       profile: local # config profile
 
@@ -17,7 +17,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: health, beans, refresh
 
 eureka:
   instance:
