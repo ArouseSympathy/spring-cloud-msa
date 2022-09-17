@@ -9,7 +9,5 @@ spring:
       server:
         git:
           uri: https://github.com/kjykjy950103/spring-cloud-config-repository
-          username: kjykjy950103
-          password: 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
       enabled: false
 
