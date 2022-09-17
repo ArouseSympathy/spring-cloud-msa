@@ -14,8 +14,6 @@ services:
       - ./data:/var/lib/mysql
       # 설정 파일 저장될 위치
       - ./config:/etc/mysql/conf.d
-    networks:
-      - local
     environment:
       # 컨테이너 내의 시스템 타임존을 우리나라에 맞게 설정합니다.
       - "TZ=Asia/Seoul"
@@ -31,13 +29,9 @@ services:
     # 환경에 따라 변경
     ports:
       - "64412:64412"
-    expose:
-      - "64412"
     depends_on:
       - config-server
       - discovery-server
-    networks:
-      - local
     environment:
       # 컨테이너 내의 시스템 타임존을 우리나라에 맞게 설정합니다.
       - "TZ=Asia/Seoul"
@@ -52,13 +46,9 @@ services:
     # 환경에 따라 변경
     ports:
       - "54412:54412"
-    expose:
-      - "54412"
     depends_on:
       - config-server
       - discovery-server
-    networks:
-      - local
     environment:
       # 컨테이너 내의 시스템 타임존을 우리나라에 맞게 설정합니다.
       - "TZ=Asia/Seoul"
@@ -73,10 +63,6 @@ services:
     # 환경에 따라 변경
     ports:
       - "8888:8888"
-    expose:
-      - "8888"
-    networks:
-      - local
     environment:
       # 컨테이너 내의 시스템 타임존을 우리나라에 맞게 설정합니다.
       - "TZ=Asia/Seoul"
@@ -92,10 +78,6 @@ services:
     # 환경에 따라 변경
     ports:
       - "8761:8761"
-    expose:
-      - "8761"
-    networks:
-      - local
     environment:
       # 컨테이너 내의 시스템 타임존을 우리나라에 맞게 설정합니다.
       - "TZ=Asia/Seoul"
@@ -111,10 +93,6 @@ services:
     # 환경에 따라 변경
     ports:
       - "8000:8000"
-    expose:
-      - "8000"
-    networks:
-      - local
     depends_on:
       - discovery-server
     environment:
@@ -125,7 +103,6 @@ services:
       # 위 명령어를 사용하지 않으면, 일부 설정이 latin으로 설정됩니다.
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
-
 networks:
-  local:
+  default:
     driver: bridge
