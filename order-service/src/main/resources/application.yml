@@ -7,9 +7,9 @@ spring:
   profiles:
     active: local
   config:
-    import: "configserver:http://localhost:8888"
+    import: configserver:http://config-server:8888
   cloud:
-    config: # Ex) `http://localhost:8088/config/local`
+    config: # Ex) `http://localhost:8888/config/local`
       name: config # config name
       profile: local # config profile
 
@@ -27,7 +27,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
-
-encrypt:
-  key: my_symmetric_key
+      defaultZone: http://discovery-server:8761/eureka
